@@ -1,0 +1,66 @@
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+# Id: Makefile_symb,v 1.0 19-03-2018, IBU
+#
+#                This source code is part of
+#
+#   Symbolic Information Flow Measure Code for styding the
+#   information flow in dynamical systems
+#
+#                        VERSION 1.0
+#
+# Written by Hiqmet Kamberaj.
+# Copyright (C) 2018 Hiqmet Kamberaj.
+# Check out h.kamberaj@gmail.com for more information.
+#
+# This program is free software; you can redistribute it and/or modify it under 
+# the terms of the GNU General Public License as published by the Free Software Foundation; 
+# GPL-3.0
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+# without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+# See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with this program; 
+# if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, 
+# Boston, MA 02111-1307 USA
+#
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+FF90 = mpif90
+SRC = 
+OBJS_symb = defs.o defs_mpi.o random.o teutils.o telinklist.o symbmodule.o demo_symb.o
+#
+symbrun.exe:	$(OBJS_symb)
+	$(FF90) -o symbrun.exe -O2 defs.f90 defs_mpi.f90 random.f90 teutils.f90 telinklist.f90 symbmodule.f90 demo_symb.f90 
+	@echo Symbolic Trajectory COMPLETED
+#
+# transfer entropy source file rules
+defs.o:	$(SRC)defs.f90
+	$(FF90) -c $(SRC)defs.f90
+
+#
+defs_mpi.o:	$(SRC)defs_mpi.f90
+	$(FF90) -c $(SRC)defs_mpi.f90
+
+#
+random.o: $(SRC)random.f90
+	$(FF90) -c $(SRC)random.f90
+	
+#
+teutils.o: $(SRC)teutils.f90
+	$(FF90) -c $(SRC)teutils.f90
+#
+telinklist.o: $(SRC)telinklist.f90
+	$(FF90) -c $(SRC)telinklist.f90
+#
+symbmodule.o: $(SRC)symbmodule.f90
+	$(FF90) -c $(SRC)symbmodule.f90
+#
+demo_symb.o: $(SRC)demo_symb.f90
+	$(FF90) -c $(SRC)demo_symb.f90
+
+
+clean:
+	rm -f   *.mod	
+	rm -f   $(OBJS_symb)
+	rm -f   symbrun.exe 
