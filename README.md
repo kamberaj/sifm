@@ -457,21 +457,7 @@ Symbolic Information Flow Measurement
 #                                             --- whether a sequence of Gaussians or u(0,1)
 #                                             --- number of streams
 #                                             --- and the processor ID (MPI version) 
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-#
-## BSANN folder contains python codes for performing Machine Learning to encode the information from the real dynamical variables.
-# The following files are included:
-# driver_bsann_reducedim.py -- it contains the functions to test benchmark data:
-# 1) myTest1("data/benchmark1/lorenzmapode45.dat",3) -- accepts as input (X,Y,Z) dynamical variables and encodes this information into the output Z 
-#                                                       Z represents reduced dimension space of the Lorenz map system.
-# 2) myTest2("data/benchmark2/coords.pdb",3) -- represents the case of the fragment C2 of the protein G generated using Molecular Dynamics Simulations;
-#                                            Inputs  -- atomic coordinates in PDB format
-#                                            Outputs -- encoded variable (one-dimension array) for each amino acid.
-# nnclass.py -- python code for performing BSANN optimization
-# trainingData_mdsim.py --- python code for manipulating input molecular dynamics simulations data.
-#
-# Auxiliary Libraries:
-# Numpy is needed to run the python codes.
+# --------------------------------------------------------------------------------------------------------------------------------------
 #
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Set up system configuration file
